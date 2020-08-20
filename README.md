@@ -1,4 +1,4 @@
-# YouTube 프로그래밍
+YouTube 프로그래밍
 
 --------------
 
@@ -50,3 +50,17 @@
    - Models
    - Relationships
 
+
+
+**<u>구현한 페이지</u>**
+
+- [ ] Home
+- [ ] Join 
+- [ ] Login 
+- [ ] Search
+- [ ] User Detail
+- [ ] Edit Profile
+- [ ] Change Password
+- [ ] Upload
+- [ ] Video Detail
+- [ ] Edit Video
