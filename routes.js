@@ -27,6 +27,10 @@ const GITHUB_CALLBACK = "/auth/github/callback";
 const FB = "/auth/facebook";
 const FB_CALLBACK = "/auth/facebook/callback";
 
+// Kakao
+const KAKAO = "/auth/kakao";
+const KAKAO_CALLBACK = "/oauth";
+
 const routes = {
   home: HOME,
   join: JOIN,
@@ -66,11 +70,13 @@ const routes = {
       return DELETE_VIDEO;
     }
   },
+  me: ME,
   github: GITHUB,
   githubCallback: GITHUB_CALLBACK,
-  me: ME,
   facebook: FB,
   facebookCallback: FB_CALLBACK,
+  kakao: KAKAO,
+  kakaoCallback: KAKAO_CALLBACK,
 };
 
 export default routes;
