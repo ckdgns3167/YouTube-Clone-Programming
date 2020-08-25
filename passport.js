@@ -1,10 +1,23 @@
 import passport from "passport";
+import GithubStrategy from "passport-github";
 import User from "./models/User";
-
+import { githubLoginCallback } from "./controllers/userController";
+import routes from "./routes";
 /**
- * Strategy
+ * Strategy 등록
  */
-passport.use(User.createStrategy()); // Strategy 객체 등록 -> 등록한 전략 데이터가 req._strategys에 기록된다.
+passport.use(User.createStrategy()); // Local
+passport.use(
+  // Github
+  new GithubStrategy(
+    {
+      clientID: process.env.GH_ID,
+      clientSecret: process.env.GH_SECRET,
+      callbackURL: `http://localhost:4000${routes.githubCallback}`,
+    },
+    githubLoginCallback
+  )
+);
 
 /**
  * Serialization : 전달받은 객체(정보)를 세션에 저장하는 역할
