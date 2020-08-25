@@ -1,3 +1,4 @@
+import passport from "passport";
 import routes from "../routes";
 import User from "../models/User";
 
@@ -31,9 +32,12 @@ export const postJoin = async (req, res, next) => {
 export const getLogin = (req, res) =>
   res.render("login", { pageTitle: "Log in" });
 
-export const postLogin = (req, res) => {
-  res.redirect(routes.home);
-};
+// local: 소셜 로그인으로 인한 인증 절차가 아닌 local로 인증 절차를 진행하겠다는 의미
+export const postLogin = passport.authenticate("local", {
+  failureRedirect: routes.login,
+  successRedirect: routes.home,
+  failureFlash: true, // flash 메시지 반환 여부
+});
 
 export const logout = (req, res) => {
   // To Do: Process Log Out
