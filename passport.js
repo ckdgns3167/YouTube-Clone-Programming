@@ -6,9 +6,9 @@ import routes from "./routes";
 /**
  * Strategy 등록
  */
-passport.use(User.createStrategy()); // Local
+passport.use(User.createStrategy()); // Local 방식: username과 password를 이용한 방식
 passport.use(
-  // Github
+  // Github 방식
   new GithubStrategy(
     {
       clientID: process.env.GH_ID,
