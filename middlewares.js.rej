@@ -1,0 +1,31 @@
+diff a/middlewares.js b/middlewares.js	(rejected hunks)
+@@ -7,11 +7,25 @@
+ export const localsMiddleware = (req, res, next) => {
+   res.locals.siteName = "WeTube";
+   res.locals.routes = routes;
+-  res.locals.user = {
+-    isAuthenticated: true,
+-    id: 1,
+-  };
++  res.locals.user = req.user || null;
+   next();
+ };
+ 
++export const onlyPublic = (req, res, next) => {
++  // console.log(req._passport);
++  if (req.user) {
++    res.redirect(routes.home);
++  } else {
++    next();
++  }
++};
++
++export const onlyPrivate = (req, res, next) => {
++  if (req.user) {
++    next();
++  } else {
++    res.redirect(routes.home);
++  }
++};
++
+ export const uploadVideo = multerVideo.single("videoFile");
