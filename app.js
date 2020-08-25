@@ -10,6 +10,15 @@ import userRouter from "./routers/userRouter";
 import videoRouter from "./routers/videoRouter";
 import globalRouter from "./routers/globalRouter";
 
+import "./db";
+
+/**
+ * Model
+ */
+import "./models/Video";
+import "./models/Comment";
+import "./models/User";
+
 const app = express(); // express 서버 객체를 생성하여 app이라는 변수에 저장.
 
 /**
